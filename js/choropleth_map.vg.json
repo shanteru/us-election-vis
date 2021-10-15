@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "COVID-19 Active Cases (10 Oct 2020)",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/US_States_SOVI_Infographics.json",
+    "format": {
+          "type": "topojson",
+          "feature": "US_States_SOVI_Infographics"
+        }
+  },
+  "transform": [{
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/VEP_turnout_state.csv"
+        },
+        "key": "State",
+        "fields": ["vep_turnout"]
+      }
+    },
+    {"calculate": "datum.vep_turnout + 0.1", "as": "VEP Turnout Rate"}
+  ],
+  "projection": {
+    "type": "albersUsa"
+  },
+  "mark": {
+    "type": "geoshape"
+    },
+  "encoding": {
+    "color": {
+      "field": "VEP Turnout Rate",
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "tooltip": [
+      {"field": "properties.NAME", "type": "nominal", "title": "State"},
+      {"field": "VEP Turnout Rate", "type": "quantitative"}
+    ]
+  }
+
+}
