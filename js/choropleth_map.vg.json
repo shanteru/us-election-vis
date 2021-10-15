@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "COVID-19 Active Cases (10 Oct 2020)",
+  "title": "2020 votes cast as a share of voting-eligible population (VEP)",
   "width": 800,
   "height": 600,
   "data": {
