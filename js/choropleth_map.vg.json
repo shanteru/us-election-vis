@@ -11,16 +11,22 @@
         }
   },
   "transform": [{
-      "lookup": "properties.NAME",
+      "lookup": "State",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/VEP_turnout_state.csv"
+          "values": [
+            {"State": "Alabama", "VEP": 63.1},
+            {"State": "Alaska", "VEP": 68.4},
+            {"State": "Arizona", "VEP": 65.3},
+            {"State": "Arkansas", "VEP": 55.9},
+            {"State": "California", "VEP": 67.4}
+          ]
         },
         "key": "State",
-        "fields": ["vep_turnout"]
+        "fields": ["VEP"]
       }
     },
-    {"calculate": "datum.vep_turnout + 0.1", "as": "VEP Turnout Rate"}
+    {"calculate": "datum.VEP/100 * 100", "as": "VEP Turnout Rate"}
   ],
   "projection": {
     "type": "albersUsa"
@@ -32,11 +38,12 @@
     "color": {
       "field": "VEP Turnout Rate",
       "type": "quantitative",
-      "scale": {"type": "log"}
+      "scale": {"type": "threshold","domain": [50,60,70,80,90,100]}
+      
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "State"},
-      {"field": "VEP Turnout Rate", "type": "quantitative"}
+      {"field": "VEP Turnout Rate", "type": "quantitative" ,"format": ".2f"}
     ]
   }
 

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+
+  "data": {
+    "url": "data/VEP_turnout_state.csv"
+  },
+  "transform": [{
+    "window": [{
+      "op": "sum",
+      "field": "VEP_Turnout_Rate",
+      "as": "Total"
+    }],
+    "frame": [null, null]
+  },
+  {
+    "calculate": "datum.VEP_Turnout_Rate/100 * 100",
+    "as": "PercentOfTotal"
+  }],
+
+  "mark": "bar",
+  "encoding": {
+    "x": { "field": "PercentOfTotal" , "type":"quantitative"},
+    "y": { "field": "State", "type": "nominal" }
+  }
+
+}
+
