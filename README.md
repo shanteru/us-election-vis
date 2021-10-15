@@ -3,8 +3,8 @@
 # FIT3179 Visualisation 2 
 
 ## Resources
-US 2020 Election [Kaggle](https://www.kaggle.com/unanimad/us-election-2020)
-http://www.electproject.org/home/voter-turnout/voter-turnout-data
+US 2020 Election [Kaggle](https://www.kaggle.com/unanimad/us-election-2020) \n
+http://www.electproject.org/home/voter-turnout/voter-turnout-data \n
 https://catalist.us/wh-national/
 
 ## Link
