@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <img src="https://fontmeme.com/permalink/211012/b1e861b3f0d5baad459e321f60fef9df.png" class="logo">
+            <h1>How the Ballot rolls</h1>
+        </div>
+        <h2>Overview</h2>
+        <!-- pure grid group -->
+        <h3>Highest turnout rate since the century</h3>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="vis1" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+        <br>
+
+        <p>Example originally from:
+            <a href=https://vega.github.io/vega-lite/examples/interactive_overview_detail.html>link</a>
+
+
+            <hr class="hr3">
+
+            <h2>The most diverse electorate ever? </h2>
+            <!-- pure grid group -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <div id="vis2" class="vis-container"></div>
+                </div>
+            </div>
+            <!-- end pure grid group -->
+            <br>
+
+            <hr class="hr3">
+
+
+            <h2>Women voters remain critical</h2>
+            <h3>this is especially true to the democratic coalition</h3>
+            <!-- pure grid group -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <div id="vis3" class="vis-container"></div>
+                </div>
+            </div>
+            <!-- end pure grid group -->
+            <br>
+
+            <hr class="hr3">
+
+            <h2>New voters made the Difference</h2>
+            <!-- pure grid group -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <div id="vis4" class="vis-container"></div>
+                </div>
+            </div>
+            <!-- end pure grid group -->
+
+            <hr class="hr3">
+
+            <div class="pure-g">
+                <div class="pure-u-1-1 small-font">
+                    <p>&copy; 2021 <a href="https://github.com/shanteru/fit3179-visualisation2.git" target="_blank">Chantelle Loh Yi Wei</a>. Copyright reserved. Those examples are for educational purpose only.
+                </div>
+            </div> 
+    </div>
+    <script type="text/javascript">
+        var spec2 = "js/choropleth_map.vg.json";
+        vegaEmbed("#vis1", spec2)
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
+        
+      </script>
+</html>
