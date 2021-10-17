@@ -1,28 +1,50 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
+  "background": null,
+  "title": {
+    "text": "How 2020 turnout compares to other high-turnout presidential election",
+    "fontSize": 25,
+    "font": "Serif"
+  },
+  "view": { "stroke": null },
 
+  "params": [
+    {
+      "name": "Year_selection",
+      "bind": {
+        "input": "select",
+        "options": [null,"1" ],
+        "labels": [ "Show All","Show Fewer Year"],
+        "name": "Select Year: "
+      }
+    }
+  ],
   "data": {
-    "url": "data/VEP_turnout_state.csv"
+    "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/yearly_turnout.csv"
   },
-  "transform": [{
-    "window": [{
-      "op": "sum",
-      "field": "VEP_Turnout_Rate",
-      "as": "Total"
-    }],
-    "frame": [null, null]
-  },
-  {
-    "calculate": "datum.VEP_Turnout_Rate/100 * 100",
-    "as": "PercentOfTotal"
-  }],
+  "transform": [
+    {
+      "frame": [null, null]
+    },
+    { "filter": " datum.High == Year_selection || Year_selection == null " },
+    {
+      "calculate": "datum.vep_turnout * 100",
+      "as": "PercentOfTotal"
+    }
+  ],
 
   "mark": "bar",
   "encoding": {
-    "x": { "field": "PercentOfTotal" , "type":"quantitative"},
-    "y": { "field": "State", "type": "nominal" }
-  }
-
+    "x": { "field": "PercentOfTotal", "type": "quantitative", "axis": null },
+    "y": { "field": "Year", "type": "nominal", "sort": "-y" }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": { "expr": "datum.Year == 2020 ? '#2e856e': '#ddd'" }
+      }
+    }
+  ]
 }
-

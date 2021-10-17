@@ -1,3 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+.nav-bar h1{
+  font-family: "Montserrat",sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+
+}
+
+li,a, button{
+  font-family: "Montserrat",sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.nav-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 1%;
+  background-color: black;
+  height: fit-content;
+}
+
+.nav__links{
+  list-style: none;
+}
+
+.nav__links li{
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav__links li a{
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover{
+  color: #0088a9
+}
+
+button{
+  padding: 9px 25px;
+  background-color: rgba(0,136,169,1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover{
+  background-color: rgba(0,136,169,0.8);
+}
+
 .vis-container {
   width: 100%;
 }
@@ -26,7 +90,7 @@ body{
 }
 
 .header{
-  background-image: url('https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/image/bg1.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/image/bg1.jpg');
   background-size: cover;
 
 
@@ -35,5 +99,53 @@ body{
   font-family:'Times New Roman', Times, serif;
   font-style: italic;
   
+}
+
+.divider {
+  font-family: 'Times New Roman', Times, serif;
+  color: #000;
+  font-size: 6vh;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divider::before, .divider::after {
+  content: "";
+  display: block;
+  height: 0.09em;
+  min-width: 30vw;
+}
+.divider::before {
+  background: linear-gradient(to right, rgba(240, 240, 240, 0), #000);
+  margin-right: 4vh;
+}
+.divider::after {
+  background: linear-gradient(to left, rgba(240, 240, 240, 0), #000);
+  margin-left: 4vh;
+}
+
+
+.section-break-1 {
+ 
+  border: 0;
+  border-top: 2px solid black;
+  height: 1px;
+  margin: 2rem auto;
+  text-align: center;
+  width: 100%;
+}
+.section-break-1:before {
+  
+  color: #1a1a1a;
+  content: "◈";
+  display: inline-block;
+  font-size: 1.6rem;
+  left: 50%;
+  line-height: 1;
+  padding: 0 0.5rem;
+  text-rendering: geometricPrecision;
+  transform: translateY(-53%);
+  z-index: 1;
 }
 

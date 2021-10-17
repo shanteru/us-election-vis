@@ -1,50 +1,269 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "2020 votes cast as a share of voting-eligible population (VEP)",
-  "width": 800,
-  "height": 600,
   "data": {
-    "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/US_States_SOVI_Infographics.json",
-    "format": {
-          "type": "topojson",
-          "feature": "US_States_SOVI_Infographics"
-        }
+    "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/VEP_turnout_state.csv",
+    "format": {"parse": {"total_votes": "number"}}    
   },
-  "transform": [{
-      "lookup": "State",
-      "from": {
-        "data": {
-          "values": [
-            {"State": "Alabama", "VEP": 63.1},
-            {"State": "Alaska", "VEP": 68.4},
-            {"State": "Arizona", "VEP": 65.3},
-            {"State": "Arkansas", "VEP": 55.9},
-            {"State": "California", "VEP": 67.4}
-          ]
-        },
-        "key": "State",
-        "fields": ["VEP"]
-      }
-    },
-    {"calculate": "datum.VEP/100 * 100", "as": "VEP Turnout Rate"}
-  ],
-  "projection": {
-    "type": "albersUsa"
-  },
-  "mark": {
-    "type": "geoshape"
-    },
-  "encoding": {
-    "color": {
-      "field": "VEP Turnout Rate",
-      "type": "quantitative",
-      "scale": {"type": "threshold","domain": [50,60,70,80,90,100]}
-      
-    },
-    "tooltip": [
-      {"field": "properties.NAME", "type": "nominal", "title": "State"},
-      {"field": "VEP Turnout Rate", "type": "quantitative" ,"format": ".2f"}
-    ]
+  "background":null,
+  "params": [
+    {
+  "name": "State_selection",
+  "bind": {
+    "input": "select",
+    "options": [
+      null,
+      "California",
+      "Nevada",
+      "New York",
+      "Oregon",
+      "Washington",
+      "Minnesota",
+      "Texas",
+      "Illinois",
+      "Louisiana",
+      "Florida",
+      "North Carolina",
+      "Utah",
+      "Virginia",
+      "Hawaii",
+      "Montana",
+      "Pennsylvania",
+      "Wyoming",
+      "New Jersey",
+      "Alabama",
+      "South Carolina",
+      "Connecticut",
+      "New Mexico",
+      "Wisconsin",
+      "Colorado",
+      "Tennessee",
+      "Ohio",
+      "Arizona",
+      "Rhode Island",
+      "Mississippi",
+      "Maryland",
+      "Missouri",
+      "Kentucky",
+      "Michigan",
+      "Indiana",
+      "Nebraska",
+      "Massachusetts",
+      "Kansas",
+      "Arkansas",
+      "Delaware",
+      "Maine",
+      "Iowa",
+      "Alaska",
+      "Oklahoma",
+      "Vermont",
+      "West Virginia",
+      "New Hampshire",
+      "South Dakota",
+      "North Dakota"
+    ],
+    "labels":[
+      "Show All",
+      "California",
+      "Nevada",
+      "New York",
+      "Oregon",
+      "Washington",
+      "Minnesota",
+      "Texas",
+      "Illinois",
+      "Louisiana",
+      "Florida",
+      "North Carolina",
+      "Utah",
+      "Virginia",
+      "Hawaii",
+      "Montana",
+      "Pennsylvania",
+      "Wyoming",
+      "New Jersey",
+      "Alabama",
+      "South Carolina",
+      "Connecticut",
+      "New Mexico",
+      "Wisconsin",
+      "Colorado",
+      "Tennessee",
+      "Ohio",
+      "Arizona",
+      "Rhode Island",
+      "Mississippi",
+      "Maryland",
+      "Missouri",
+      "Kentucky",
+      "Michigan",
+      "Indiana",
+      "Nebraska",
+      "Massachusetts",
+      "Kansas",
+      "Arkansas",
+      "Delaware",
+      "Maine",
+      "Iowa",
+      "Alaska",
+      "Oklahoma",
+      "Vermont",
+      "West Virginia",
+      "New Hampshire",
+      "South Dakota",
+      "North Dakota"
+    ],
+    "name": "Select State: "
   }
+}
 
+
+],
+
+  "vconcat": [
+    {
+      "title": {"text":"2020 Total Votes Cast","fontSize":25,"font": "Serif"},
+      "width": "container",
+
+      "height": 700,
+      "projection": {"type": "albersUsa"},
+        
+      "layer": [
+        {
+          "params": [
+            {
+              "name": "highlight",
+              "select": {"type": "point", "on": "mouseover"}
+            }
+          ],
+          "data": {
+              "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/US_States_SOVI_Infographics.json",
+              "format": {"type": "topojson", "feature": "US_States_SOVI_Infographics"}
+          },
+          
+          "mark": {
+            "type": "geoshape", "stroke": "black",
+            "strokeWidth": 0.3
+          },
+          "transform": [
+              {
+                  "lookup": "properties.STATE_NAME",
+                  "from": {
+                    "data": {
+                      "url": "data/VEP_turnout_state.csv",
+                      "format": {"parse": {"total_votes": "number"}}                      
+                    },
+                    "key": "state",
+                    "fields": ["total_votes"]
+                  }
+                },
+                {"filter": "State_selection == null || datum.properties.STATE_NAME == State_selection"},
+                {"calculate": "datum.total_votes/datum.properties.POPULATION * 100000", "as": "Number of Total votes per 100k population"}
+
+          ],
+          "encoding": {
+              "color": {
+                  "field": "Number of Total votes per 100k population",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "threshold",
+                    "domain": [45000, 50000, 55000, 60000,70000],
+                    "range": ["#b8d5cd","#8abaae", "#5ca08e", "#2e856e", "#006a4e"]
+                    },
+                    "legend": {
+                      
+                      "title": "Number of Total votes per 100k population",
+                      "titleFontSize":15,
+                      "titleAnchor":"end",
+                      "direction":"horizontal", 
+                      "orient":"top-right", 
+                      "labelFontSize": 15,
+                      "titleLimit":1000
+                    
+                  }
+                },
+                "strokeWidth": {
+                  "condition": [
+                    {
+                      "param": "highlight",
+                      "empty": false,
+                      "value": 2
+                    }
+                  ],
+                  "value": 0.3
+                },
+                "opacity": {
+                  "condition": {"param": "highlight", "value": 1},
+                  "value": 0.7
+                },
+
+            "tooltip": [
+              {"field": "properties.STATE_NAME", "type": "nominal", "title": "States"},
+              {"field": "total_votes", "type": "nominal","format":"," ,"title": "Number of Total votes"},
+              {"field": "Number of Total votes per 100k population", "type": "quantitative","format":".2f"},
+              {"field": "Number of Total votes per 100k population", "type": "quantitative","format":".0f"}
+            ]
+          }
+        },
+      {
+        "layer": [
+          {
+            "layer":[
+              {
+                "data": 
+                {
+                  "url": "data/us_position.csv"
+                },
+                "mark": {"type": "circle", "tooltip": {"content": "data"}},
+                "encoding": {
+                  "longitude": {"field": "long", "type": "quantitative"},
+                  "latitude": {"field": "lat", "type": "quantitative"},
+                  "size": {
+                    "field": "POPESTIMATE2019",
+                    "title":"Population",
+                    "type": "quantitative",
+                    "scale": {"domain": [0, 40000000], "range": [100, 4000]},
+                    "legend": {
+                      "title": "Population",
+                      "titleFontSize":20,
+                      "direction":"horizontal", 
+                      "orient":"bottom", 
+                      "labelFontSize": 20,
+                      "titleLimit":1000,
+                      "titleFont":"Lato",
+                      "labelFont":"Lato"
+
+                  }
+
+                    
+                  },
+                  
+                  "tooltip":[
+                    {"field":"STATE","type":"nominal","title":"States"},
+                    {"field":"POPESTIMATE2019","type":"nominal","title":"Population"}
+
+                  ]
+                }
+              }
+
+            ]
+          }
+
+        ],"resolve": {
+          "scale": {
+            "color": "independent",
+            "size": "independent"
+          }
+        }
+      }
+         
+      ]
+    }
+  ],
+      "config": {
+        "style": {
+            "cell": {
+                "stroke": null
+            }
+        }
+    }
 }

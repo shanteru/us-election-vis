@@ -1,0 +1,81 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
+    "width":"container",
+    "background":null,
+    "view": { "fill": "rgba(222, 222, 221, 0.7)", "cornerRadius":15 , "stroke":null},
+    "data": {"url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/gender_gap.csv"},
+    "transform": [
+      {
+        "filter": {
+          "field": "Year",
+          "oneOf": [2020, 2018, 2016, 2014, 2012, 2010, 2008]
+        }
+      },
+      {
+        "filter": {
+          "field": "Gender",
+          "oneOf": ["Female", "Male"]
+        }
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Turnout",
+        "type": "quantitative",
+        "title": "VEP Turnout Rate",
+        "axis":{
+          "gridOpacity": 0.4
+        },
+        "scale": {
+          "type": "threshold",
+          "domain": [40,60]
+          
+
+          
+          }
+      },
+      "y": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year",
+        "axis": {
+          "offset": 5,
+          "ticks": false,
+          "minExtent": 70,
+          "domain": false
+        }
+      }
+    },
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "detail": {
+            "field": "Year",
+            "type": "ordinal"
+          },
+          "color": {"value": "#8abaae"}
+        }
+      },
+      {
+        "mark": {
+          "type": "point",
+          "filled": true
+        },
+        "encoding": {
+          "color": {
+            "field": "Gender",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Female", "Male"],
+              "range": ["#006a4e", "#5ca08e"]
+            },
+            "title": "Year"
+          },
+          "size": {"value": 100},
+          "opacity": {"value": 1}
+        }
+      }
+    ]
+  }

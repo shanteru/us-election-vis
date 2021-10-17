@@ -10,96 +10,200 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
+    <!-- Echarts -->
+
+    <script src="js/echarts.js"></script>
+
      <!-- Import pure.css -->
      <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
+     <!-- AOS -->
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+     
+
+       <!-- up icons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+     <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
     <title>Document</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/template.css">
     
 </head>
 <body>
     <div class="page">
-        <div class="header">
+        <!-- Header and title -->
+        <div class="header" data-aos="fade-up" data-aos-duration="1500" >
             <img src="https://fontmeme.com/permalink/211012/b1e861b3f0d5baad459e321f60fef9df.png" class="logo">
             <h1>How the Ballot rolls</h1>
         </div>
-        <h2>Overview</h2>
-        <!-- pure grid group -->
-        <h3>Highest turnout rate since the century</h3>
-        <div id="vis1" class="vis-container"></div>
-        <div class="pure-g">
-            <div class="pure-u-1-1">
-               
-            </div>
+        <div class="nav-bar" data-aos="fade-up" data-aos-duration="1500" >
+            <p>SECTION</p>
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="#s1">VEP Turnout Rate</a></li>
+                    <li><a href="#s2">Race & Ethnicity</a></li>
+                    <li><a href="#s3">Gender votes</a></li>
+            
+                    
+                    
+                </ul>
+            </nav>
+            <a class="cta" href="#result"><button>RESULT</button></a>
         </div>
-        <!-- end pure grid group -->
-        <br>
 
-        <p>Example originally from:
-            <a href=https://vega.github.io/vega-lite/examples/interactive_overview_detail.html>link</a>
+        <button onclick="goBackUp()" id="upButton" title="Go to top">
+            <i class='bx bx-up-arrow-alt'></i>
+        </button>
 
-
-            <hr class="hr3">
-
-            <h2>The most diverse electorate ever? </h2>
-            <!-- pure grid group -->
-            <div class="pure-g">
-                <div class="pure-u-1-1">
-                    <div id="vis2" class="vis-container"></div>
-                </div>
-            </div>
-            <!-- end pure grid group -->
-            <br>
-
-            <hr class="hr3">
+        <!-- End of Header and title -->
 
 
-            <h2>Women voters remain critical</h2>
-            <h3>this is especially true to the democratic coalition</h3>
-            <!-- pure grid group -->
-            <div class="pure-g">
-                <div class="pure-u-1-1">
-                    <div id="vis3" class="vis-container"></div>
-                </div>
-            </div>
-            <!-- end pure grid group -->
-            <br>
+        <!-- Section 1 : Turnout Rate -->
+        <div class="sect-title" data-aos="fade-right">
+            <h1 id="s1">Highest turnout rate since the century</h1>
+        </div>
+        <div class="vep-desc" >
+            <p>
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+            </p>
+        </div>
+        <!-- Visualisation -->
+        <div id="bar1"  class="vis-container"></div>
+        <div id="map1"  class="vis-container"></div>
 
-            <hr class="hr3">
+        <!-- End of Section 1 -->
+        <hr class="section-break" />
+        <!-- Section 2 : Diversity -->
+        <div class="sect-title" data-aos="fade-right">
+            <h1 id="s2">The most diverse electorate ever?</h1>
+        </div>
+        <!-- description  -->
+        <!-- Visualisation -->
+        <div id="sankey" style="width: 1000px;height:400px;" data-aos="fade-right"></div>
+        <!-- End of Section 2 -->
 
-            <h2>New voters made the Difference</h2>
-            <!-- pure grid group -->
-            <div class="pure-g">
-                <div class="pure-u-1-1">
-                    <div id="vis4" class="vis-container"></div>
-                </div>
-            </div>
-            <!-- end pure grid group -->
+        <!-- Section 3 : Gender -->
+        <div class="sect-title" data-aos="fade-right" >
+            <h1 id="s3">Women voters remain critical</h1>
+        </div>
+        <div class="vep-desc">
+            <p>
+                This is especially true to the democratic coalition as we can see over the years, women votes have been more prominent.
+            </p>
+        </div>
+        <!-- Visualisation -->
+        <div id="dot" class="vis-container" ></div>
 
-            <hr class="hr3">
+        <div id="grid" class="vis-container" ></div>
 
-            <div class="pure-g">
-                <div class="pure-u-1-1 small-font">
-                    <p>&copy; 2021 <a href="https://github.com/shanteru/fit3179-visualisation2.git" target="_blank">Chantelle Loh Yi Wei</a>. Copyright reserved. Those examples are for educational purpose only.
-                </div>
-            </div> 
+        <!-- End of Section 3 -->
+        <hr class="section-break" />
+        <!-- Section 4 : result -->
+        <div class="sect-title" data-aos="fade-right" >
+            <h1 id="result">Democrats vs Republican</h1>
+        </div>
+        <div class="vep-desc">
+            <p>
+               An overview map of the states result in 2020
+            </p>
+        </div>
+        <!-- Visualisation -->
+        <div id="line" class="vis-container" ></div>
+
+        <!-- End of Section 4 -->
     </div>
+
+    
+    <!-- functions -->
+    <script>
+        // go back to the start document
+    function goBackUp() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+
+      //Button dont always appear
+    var goUpButton = document.getElementById("upButton");
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        goUpButton.style.display = "block";
+      } else {
+        goUpButton.style.display = "none";
+      }
+    }
+    </script>
+
+    <!-- Visualisation initialisation VEGA -->
     <script type="text/javascript">
-        var spec2 = "js/choropleth_map.vg.json";
-        vegaEmbed("#vis1", spec2)
+
+        var vis1 = "js/choropleth_map.vg.json";
+        vegaEmbed("#map1", vis1)
           .then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
           })
           .catch(console.error);
 
-          var spec3 = "js/barchart.vg.json";
-        vegaEmbed("#vis2", spec3)
+        var vis2 = "js/barchart.vg.json";
+        vegaEmbed("#bar1", vis2)
           .then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
           })
           .catch(console.error);
+
+
+          var vis3 = "js/ranged_dot_plot.vg.json";
+        vegaEmbed("#dot", vis3)
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
+
+          var vis4 = "js/isotype.vg.json";
+        vegaEmbed("#grid", vis4)
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
+
+          
+
+          var spec5 = "line.vg.json";
+        vegaEmbed("#vis5", spec45)
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
+
+         
         
       </script>
+
+    <!-- Echarts -->
+    <script type="module" src="js/sankey.js"></script>
+
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </html>
