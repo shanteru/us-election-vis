@@ -5,7 +5,7 @@ US 2020 Election [Kaggle](https://www.kaggle.com/unanimad/us-election-2020)\
 http://www.electproject.org/home/voter-turnout/voter-turnout-data \
 https://www.dropbox.com/s/ka9n5gzxwotfu1a/wh2020_public_release_crosstabs.xlsx?dl=0
 
-##Resources/ References
+## Resources/ References
 [Vegalite](https://vega.github.io/vega-lite/docs/)\
 [Echarts](https://echarts.apache.org/examples/en/index.html)
 
