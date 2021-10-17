@@ -1,0 +1,52 @@
+﻿state,winner,electoral,SPLIT_STATE,Battleground,flipped
+Alabama,REP,9,same,peace,no
+Alaska,REP,3,same,peace,no
+Arizona,DEM,11,same,battle,flip
+Arkansas,REP,6,same,peace,no
+California,DEM,55,same,peace,no
+Colorado,DEM,9,same,battle,no
+Connecticut,DEM,7,same,peace,no
+Delaware,DEM,3,same,peace,no
+District of Columbia,DEM,3,same,peace,no
+Florida,REP,29,same,battle,no
+Georgia,DEM,16,same,battle,flip
+Hawaii,DEM,4,same,peace,no
+Idaho,REP,4,same,peace,no
+Illinois,DEM,20,same,peace,no
+Indiana,REP,11,same,peace,no
+Iowa,REP,6,same,battle,no
+Kansas,REP,6,same,peace,no
+Kentucky,REP,8,same,peace,no
+Louisiana,REP,8,same,peace,no
+Maine,DEM,4,split,peace,no
+Maryland,DEM,10,same,peace,no
+Massachusetts,DEM,11,same,peace,no
+Michigan,DEM,16,same,battle,flip
+Minnesota,DEM,10,same,battle,no
+Mississippi,REP,6,same,peace,no
+Missouri,REP,10,same,peace,no
+Montana,REP,3,same,peace,no
+Nebraska,REP,5,split,peace,no
+Nevada,DEM,6,same,battle,no
+New Hampshire,DEM,4,same,battle,no
+New Jersey,DEM,14,same,peace,no
+New Mexico,DEM,5,same,peace,no
+New York,DEM,29,same,peace,no
+North Carolina,REP,15,same,battle,no
+North Dakota,REP,3,same,peace,no
+Ohio,REP,18,same,battle,no
+Oklahoma,REP,7,same,peace,no
+Oregon,DEM,7,same,peace,no
+Pennsylvania,DEM,20,same,battle,flip
+Rhode Island,DEM,4,same,peace,no
+South Carolina,REP,9,same,peace,no
+South Dakota,REP,3,same,peace,no
+Tennessee,REP,11,same,peace,no
+Texas,REP,38,same,battle,no
+Utah,REP,6,same,peace,no
+Vermont,DEM,3,same,peace,no
+Virginia,DEM,13,same,battle,no
+Washington,DEM,12,same,peace,no
+West Virginia,REP,5,same,peace,no
+Wisconsin,DEM,10,same,battle,flip
+Wyoming,REP,3,same,peace,no

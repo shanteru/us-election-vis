@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "background":null,
+  "width":"container",
+  "view": { "fill": "rgba(222, 222, 221, 0.5)", "cornerRadius":15 , "stroke":null},
+  "title":{"text":"Non-Hispanic White Share of Electorate","fontSize":20,"font": "Lato", "baseline":"top","dy": -10},
+  "data": {"url": "data/votebyrace.csv"},
+  
+
+  "transform": [
+    {"filter": "datum.Race == 'Non-Hispanic White'"},
+    
+   
+    
+    {
+      "calculate": "datum.Share * 100",
+      "as": "PercentOfTotal"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": true,
+    "color": "#4169e1"
+  },
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal","axis":{"title":null,"labelFontSize":18,"labelFont": "Lato"}},
+    "y": { "field": "PercentOfTotal", "type": "quantitative","title":"Share of Electorate (%)","axis":{"titleFontSize":16,"titlePadding":14,"labelFontSize":18,"labelFont": "Lato"},
+    "scale": {
+      "type": "linear",
+      "domain": [70,90]
+      
+
+      
+      }},
+    
+      
+      "tooltip":[
+        {
+          "field": "Year",
+          "type": "ordinal"
+        },{
+          "field": "PercentOfTotal",
+          "type": "quantitative",
+          "format":".1f",
+          "title":"Share of Electorate"
+        }
+      ]
+  }
+}

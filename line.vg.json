@@ -1,15 +1,69 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Stock prices of 5 Tech Companies over Time.",
-    "data": {"url": "data/stocks.csv"},
+
+    "background":null,
+    "width":"container",
+    "view": { "fill": "rgba(222, 222, 221, 0.5)", "cornerRadius":15 , "stroke":null},
+    "data": {"url": "data/votebyrace.csv"},
+    "params": [{
+      "name": "race",
+      "select": {"type": "point", "fields": ["Race"]},
+      "bind": "legend"
+    }],
+
+    "transform": [
+     
+      
+      {
+        "calculate": "datum.Turnout * 100",
+        "as": "PercentOfTotal"
+      }
+    ],
     "mark": {
       "type": "line",
       "point": true
     },
     "encoding": {
-      "x": {"timeUnit": "year", "field": "date"},
-      "y": {"aggregate":"mean", "field": "price", "type": "quantitative"},
-      "color": {"field": "symbol", "type": "nominal"}
+      "x": {"field": "Year", "type": "ordinal","axis":{"title":null,"labelFontSize":18,"labelFont": "Lato"}},
+      "y": { "field": "PercentOfTotal", "type": "quantitative","title":"Turnout Rate (%)","axis":{"titleFontSize":16,"titlePadding":14,"labelFontSize":18,"labelFont": "Lato"}},
+      "color": {"field": "Race", "type": "nominal",
+        "scale": {
+          "type": "threshold",
+          "domain": ["Non-Hispanic White","Non-Hispanic Black","Hispanic","Other"],
+          "range": ["#4169e1", "#cf383c","#FF8103","#116E75"]
+        },
+        "legend": {
+          "title": "Race",
+          "titleFontSize": 20,
+          "direction": "horizontal",
+          "orient": "none",
+          "labelFontSize": 14,
+          "titleLimit": 1000,
+          "titleFont": "Lato",
+          "labelFont": "Lato",
+          "legendX":-40,
+          "legendY":-59
+        }},
+        "opacity": {
+          "condition": {"param": "race", "value": 1},
+          "value": 0.2
+        },
+        "tooltip":[
+          {
+            "field": "Year",
+            "type": "ordinal"
+          },{
+            "field": "PercentOfTotal",
+            "type": "quantitative",
+            "format":".1f",
+            "title":"Turnout Rate"
+          },
+          {
+            "field":"Race",
+            "type": "nominal"
+          }
+    
+        ]
     }
   }
   

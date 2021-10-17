@@ -2,6 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "background": null,
+  "height":300,
   "title": {
     "text": "How 2020 turnout compares to other high-turnout presidential election",
     "fontSize": 25,
@@ -10,40 +11,64 @@
   "view": { "stroke": null },
 
   "params": [
+    
     {
       "name": "Year_selection",
       "bind": {
         "input": "select",
-        "options": [null,"1" ],
-        "labels": [ "Show All","Show Fewer Year"],
-        "name": "Select Year: "
+        "options": ["1" ,"0"],
+        "labels": [ "High-turnout Years","Show All"],
+        "name": "Select View: "
       }
     }
   ],
+  
   "data": {
-    "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/yearly_turnout.csv"
+    "url": "data/yearly_turnout.csv"
   },
   "transform": [
-    {
-      "frame": [null, null]
-    },
-    { "filter": " datum.High == Year_selection || Year_selection == null " },
-    {
-      "calculate": "datum.vep_turnout * 100",
-      "as": "PercentOfTotal"
+    
+    { "filter": " datum.High == Year_selection || datum.High == 1 " },{
+      "calculate": "datum.vep_turnout *1", "as": "Turnout"
     }
+    
   ],
 
-  "mark": "bar",
   "encoding": {
-    "x": { "field": "PercentOfTotal", "type": "quantitative", "axis": null },
-    "y": { "field": "Year", "type": "nominal", "sort": "-y" }
+    "x": { "field": "Turnout", "type": "quantitative", "axis": null },
+    "y": { "field": "Year", "type": "nominal", "sort": "-y" , "axis":{"title":null,"labelFontSize":{"expr": "Year_selection == 0 ? '10': '23'"},"labelFont": "Lato"}},
+    "tooltip":[
+      {
+        "field": "Year",
+        "type": "ordinal"
+      },{
+        "field": "Turnout",
+        "type": "quantitative",
+        "format":".1f"
+      },{
+        "field": "Note",
+        "type": "nominal"
+      }
+
+    ]
+
   },
   "layer": [
     {
       "mark": {
-        "type": "bar",
+        "type": "bar", "cornerRadiusBottomRight": 10, "cornerRadiusTopRight": 10,
         "color": { "expr": "datum.Year == 2020 ? '#2e856e': '#ddd'" }
+      }
+      
+    },{
+      "mark":{
+        "type": "text", "align":"right","x":5,"fontSize":{"expr": "Year_selection == 0 ? '10': '20'"},"baseline":"middle",
+        "color":{"expr": "datum.Year == 2020 ? 'white': 'black'"},"xOffset": -10,"yOffset":1
+
+      },
+      "encoding": {
+        "text":{"field":"Turnout","format":".1f"}
+       
       }
     }
   ]

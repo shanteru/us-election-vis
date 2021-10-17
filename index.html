@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
    
 
     <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
@@ -36,20 +37,17 @@
 <body>
     <div class="page">
         <!-- Header and title -->
-        <div class="header" data-aos="fade-up" data-aos-duration="1500" >
+        <div class="header" data-aos="fade-in" data-aos-duration="1500" >
             <img src="https://fontmeme.com/permalink/211012/b1e861b3f0d5baad459e321f60fef9df.png" class="logo">
             <h1>How the Ballot rolls</h1>
         </div>
-        <div class="nav-bar" data-aos="fade-up" data-aos-duration="1500" >
+        <div class="nav-bar" data-aos="fade-in" data-aos-duration="1500" >
             <p>SECTION</p>
             <nav>
                 <ul class="nav__links">
                     <li><a href="#s1">VEP Turnout Rate</a></li>
                     <li><a href="#s2">Race & Ethnicity</a></li>
                     <li><a href="#s3">Gender votes</a></li>
-            
-                    
-                    
                 </ul>
             </nav>
             <a class="cta" href="#result"><button>RESULT</button></a>
@@ -60,72 +58,186 @@
         </button>
 
         <!-- End of Header and title -->
+        
 
 
+        <!-- Intro -->
+        <div class="sect-title" data-aos="fade-in" data-aos-duration="1500">
+          <h1 >Introduction</h1>
+
+      </div>
+      <div class="sect-desc" >
+        <p>The <span>2020 US Election</span> has been one of the<b> most record-breaking</b> election.
+          Based on the analysis conducted, there are few <b>topline takeaways</b> for the election results which we will be discussing in sections.</p>
+      </div>
+
+      <!-- End of Introduction -->
+      <hr class="section-break" />
         <!-- Section 1 : Turnout Rate -->
-        <div class="sect-title" data-aos="fade-right">
+        <div class="sect-title" data-aos="fade-in"  data-aos-duration="1500">
             <h1 id="s1">Highest turnout rate since the century</h1>
         </div>
-        <div class="vep-desc" >
+        <div class="sect-desc" >
             <p>
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
-                VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation
+                Turnout rate are calculated based on <i>VEP*</i> and <i> VAP*</i>. It shows the rate of eligible voters making their votes in the election. 
+                Looking at the bar chart below, we can see that <b>2020</b> has the <b>highest turnout rate</b> compared to previous elections. 
+       
             </p>
+            
         </div>
+        <div class="note">
+          **Note: VEP stands for <b>V</b>oting <b>E</b>ligible <b>P</b>opulation while VAP is for <b>V</b>oting <b>A</b>ge <b>P</b>opulation.
+        </p></div>
+        <div class="pad-sect"></div>
         <!-- Visualisation -->
-        <div id="bar1"  class="vis-container"></div>
-        <div id="map1"  class="vis-container"></div>
+       
+        <div class="adjust">
+          <div id="bar1"  class="vis-container"></div>
+        </div>
+        
 
+        <div class="pad"></div>
+        <div class="sect-desc" >
+          <p>
+             
+              The map below shows the <b>VEP Turnout Rate</b> in <b>2020</b> by each state in regards to their population. 
+              <b>Minnesota</b> has the <b class="dark-green">highest turnout rate</b> among 50 states at <span class="dark-green">79.6%</span>.
+     
+          </p>
+      </div>
+      <div class="pad"></div>
+        <div id="map1"  class="vis-container"></div>
+        <div class="pad"></div>
         <!-- End of Section 1 -->
         <hr class="section-break" />
         <!-- Section 2 : Diversity -->
-        <div class="sect-title" data-aos="fade-right">
+        <div id="s2" class="sect">
+          <div class="sect-title" data-aos="fade-in"  data-aos-duration="2500">
+            
             <h1 id="s2">The most diverse electorate ever?</h1>
         </div>
+        <div class="sect-desc" >
+          <p>
+             
+              Over the years, the voting electorate has continued to be more diverse than ever before and <b>2020</b> was the <b>most racially diverse electorate</b> ever.
+              This was due to <b>big turnout increase</b> from the voters of colors, especially among Latino and AAPI* as compared to previous elections.
+
+     
+          </p>
+      </div>
+      <div class="note">
+        **Note: AAPI stands for <b>A</b>sia <b>A</b>mericans and <b>P</b>acific <b>I</b>slanders and they are included in the category <b>Other</b>
+        in the chart below.
+      </p></div>
+      <div class="note">
+        *Tip: Click on the legend to highlight a specific race.
+        
+      </p></div>
+      <div class="pad"></div>
+      <div class="row">
+        <div class="column"> <div id="line" class="vis-container" ></div></div>
+        <div class="column"> <div id="line2" class="vis-container" ></div></div>
+      </div>
+       
+        
         <!-- description  -->
+        <div class="pad-medium"></div>
+        <div class="sect-desc" >
+          <p>
+             
+             Here, we can see that the <b class="blue2">Non-Hispanic White</b> Share of Electorate hit <b>lowest</b> peak at <b>2020</b> with <span class="blue2">71.2%</span> Share.
+             This shows that the pool of voters are getting <B>more racially diverse</B>. 
+
+     
+          </p>
+      </div>
+      <div class="pad"></div>
+        <div class="sect-title" data-aos="fade-in"  data-aos-duration="2500">
+            
+          <h1 >Composition of Voters in 2020</h1>
+      </div><div class="sect-desc" >
+        <p>
+           
+            With percentage of Voters of Color (VOC*) increasing, the overall composition of voters has been more diverse, ranging from 
+            different <b>Gender, Education and Racial </b>aspect.    
+        </p>
+    </div>
+    <div class="note">
+      *Note: Voter of Colour represents those race and ethnicity other than White
+    </p></div>
         <!-- Visualisation -->
-        <div id="sankey" style="width: 1000px;height:400px;" data-aos="fade-right"></div>
+        <div id="sankey" style="width: 100%;height:400px; padding-left:50px" data-aos="fade-right"></div>
+        </div>
+        <div class="pad"></div>
+        
         <!-- End of Section 2 -->
 
+        <hr class="section-break" />
+
         <!-- Section 3 : Gender -->
-        <div class="sect-title" data-aos="fade-right" >
+        <div id="s3" class="sect">
+          <div class="sect-title" data-aos="fade-in"  data-aos-duration="2500">
+            
             <h1 id="s3">Women voters remain critical</h1>
         </div>
-        <div class="vep-desc">
-            <p>
-                This is especially true to the democratic coalition as we can see over the years, women votes have been more prominent.
-            </p>
-        </div>
-        <!-- Visualisation -->
-        <div id="dot" class="vis-container" ></div>
 
-        <div id="grid" class="vis-container" ></div>
+        <div class="row">
+          <div class="column">
+            <div class="sect-desc">
+              <p class="column-text">
+                  As we can see over the years, women votes have been <b>continue to be prominent</b> than of men.
+                   Having <span class="green">54%</span> as a share of voters in <b>2020</b>, it shows how <b>critical</b> women votes are.
+  
+              </p>
+          </div><div class="note"><p class="column-note">
+            *Note: Y-axis starts at non-zero for a focal point on the gender gap percentage votes.
+          </p></div>
+          </div>
+          <div class="column">
+            <div id="dot" class="vis-container" ></div>
+          </div>
+        </div>
+        
+        <!-- Visualisation -->
+        
+        <div class="pad"></div>
+        <div class="row">
+          <div class="column">
+            <div id="grid" class="vis-container" ></div>
+          </div>
+          <div class="column">
+            <div class="sect-desc">
+              <p class="column-text">
+                Here, we can see that out of the <span class="green">54%</span> female votes as a share of <span class="green">total votes</span>, <b>more than half</b> supported Democrats at <span class="highlight-blue">57%</span>. 
+                <b>Women votes</b> remain <b>crucial</b> and this is especially true for the <span class="highlight-blue">Democrats coalition</span>.
+                 
+             </p>
+          </div>
+          </div>
+        </div>
+        </div>
+        
+         
 
         <!-- End of Section 3 -->
         <hr class="section-break" />
         <!-- Section 4 : result -->
-        <div class="sect-title" data-aos="fade-right" >
+        <div class="sect-title" data-aos="fade-in"  data-aos-duration="2500">
             <h1 id="result">Democrats vs Republican</h1>
         </div>
-        <div class="vep-desc">
+        <div class="sect-desc">
             <p>
-               An overview map of the states result in 2020
+               An overview map of the states result in 2020. 
             </p>
         </div>
+        <div class="note"><p >
+          *Tip: You may choose different Highlight views at the drop down menu on bottom left.
+        </p></div>
+
+        <div class="pad"></div>
         <!-- Visualisation -->
-        <div id="line" class="vis-container" ></div>
+        <div id="map2"  class="vis-container"></div>
+        
 
         <!-- End of Section 4 -->
     </div>
@@ -186,13 +298,33 @@
 
           
 
-          var spec5 = "line.vg.json";
-        vegaEmbed("#vis5", spec45)
-          .then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-          })
-          .catch(console.error);
 
+          var spec6 = "line.vg.json";
+          vegaEmbed("#line", spec6)
+            .then(function (result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            })
+            .catch(console.error);
+
+
+            var spec7 = "map2.vg.json";
+          vegaEmbed("#map2", spec7)
+            .then(function (result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            })
+            .catch(console.error);
+
+            var spec8 = "line2.vg.json";
+            vegaEmbed("#line2", spec8)
+              .then(function (result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+              })
+              .catch(console.error);
+  
+
+          
+  
+  
          
         
       </script>

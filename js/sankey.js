@@ -26,7 +26,7 @@ const data = {
         {
             source: "Female",
             target: "College",
-            value: 2.0,
+            value: 2.2,
         },
         {
             source: "Male",

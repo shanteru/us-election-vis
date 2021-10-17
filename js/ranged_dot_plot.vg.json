@@ -1,10 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
     "width":"container",
+    "height":300,
     "background":null,
     "view": { "fill": "rgba(222, 222, 221, 0.7)", "cornerRadius":15 , "stroke":null},
     "data": {"url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/gender_gap.csv"},
+    
     "transform": [
       {
         "filter": {
@@ -23,12 +24,14 @@
       "x": {
         "field": "Turnout",
         "type": "quantitative",
-        "title": "VEP Turnout Rate",
+        "title": "Percentage composition as a share of Total Voters",
         "axis":{
-          "gridOpacity": 0.4
+          "gridOpacity": 0.4,
+          "titleFontSize": 14,
+          "labelFontSize":14,"labelFont": "Lato"
         },
         "scale": {
-          "type": "threshold",
+          "type": "linear",
           "domain": [40,60]
           
 
@@ -43,8 +46,10 @@
           "offset": 5,
           "ticks": false,
           "minExtent": 70,
-          "domain": false
-        }
+          "domain": false,
+          "labelFontSize":18,"labelFont": "Lato","title":null
+        },
+        "sort":"-y"
       }
     },
     "layer": [
@@ -71,10 +76,36 @@
               "domain": ["Female", "Male"],
               "range": ["#006a4e", "#5ca08e"]
             },
-            "title": "Year"
+            
+            "legend": {
+              "title": "Gender",
+              "titleFontSize": 20,
+              "direction": "horizontal",
+              "orient": "top",
+              "labelFontSize": 15,
+              "titleLimit": 1000,
+              "titleFont": "Lato",
+              "labelFont": "Lato"
+            }
           },
           "size": {"value": 100},
-          "opacity": {"value": 1}
+          "opacity": {"value": 1},
+          "tooltip":[
+            {
+              "field": "Year",
+              "type": "ordinal"
+            },{
+              "field": "Turnout",
+              "type": "quantitative",
+        
+              "title":"Turnout Rate"
+            },
+            {
+              "field":"Gender",
+              "type": "nominal"
+            }
+      
+          ]
         }
       }
     ]

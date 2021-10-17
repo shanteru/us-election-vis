@@ -1,0 +1,292 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/VEP_turnout_state.csv",
+      "format": { "parse": { "total_votes": "number" } }
+    },
+    "background": null,
+    "params": [
+      {
+        "name": "State_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "California",
+            "Nevada",
+            "New York",
+            "Oregon",
+            "Washington",
+            "Minnesota",
+            "Texas",
+            "Illinois",
+            "Louisiana",
+            "Florida",
+            "North Carolina",
+            "Utah",
+            "Virginia",
+            "Hawaii",
+            "Montana",
+            "Pennsylvania",
+            "Wyoming",
+            "New Jersey",
+            "Alabama",
+            "South Carolina",
+            "Connecticut",
+            "New Mexico",
+            "Wisconsin",
+            "Colorado",
+            "Tennessee",
+            "Ohio",
+            "Arizona",
+            "Rhode Island",
+            "Mississippi",
+            "Maryland",
+            "Missouri",
+            "Kentucky",
+            "Michigan",
+            "Indiana",
+            "Nebraska",
+            "Massachusetts",
+            "Kansas",
+            "Arkansas",
+            "Delaware",
+            "Maine",
+            "Iowa",
+            "Alaska",
+            "Oklahoma",
+            "Vermont",
+            "West Virginia",
+            "New Hampshire",
+            "South Dakota",
+            "North Dakota"
+          ],
+          "labels": [
+            "Show All",
+            "California",
+            "Nevada",
+            "New York",
+            "Oregon",
+            "Washington",
+            "Minnesota",
+            "Texas",
+            "Illinois",
+            "Louisiana",
+            "Florida",
+            "North Carolina",
+            "Utah",
+            "Virginia",
+            "Hawaii",
+            "Montana",
+            "Pennsylvania",
+            "Wyoming",
+            "New Jersey",
+            "Alabama",
+            "South Carolina",
+            "Connecticut",
+            "New Mexico",
+            "Wisconsin",
+            "Colorado",
+            "Tennessee",
+            "Ohio",
+            "Arizona",
+            "Rhode Island",
+            "Mississippi",
+            "Maryland",
+            "Missouri",
+            "Kentucky",
+            "Michigan",
+            "Indiana",
+            "Nebraska",
+            "Massachusetts",
+            "Kansas",
+            "Arkansas",
+            "Delaware",
+            "Maine",
+            "Iowa",
+            "Alaska",
+            "Oklahoma",
+            "Vermont",
+            "West Virginia",
+            "New Hampshire",
+            "South Dakota",
+            "North Dakota"
+          ],
+          "name": "Select A State: "
+        }
+      },{
+        "name": "Politics_selection",
+        "bind": {
+            "input": "select",
+            "options": [
+              null,
+              "battle",
+              "flip",
+              "split"
+             
+            ],
+            "labels": [
+              "Show All",
+              "Battleground States",
+              "Flipped States",
+              "Split States"
+            ],
+            "name": "Political Highlights: "
+        }
+      }
+    ],
+  
+    "vconcat": [
+      {
+        "title": {
+          "text": "2020 Election Result",
+          "fontSize": 30,
+          "font": "Serif"
+        },
+        "width": "container",
+  
+        "height": 700,
+        "projection": { "type": "albersUsa" },
+  
+        "layer": [
+          {
+            "params": [
+              {
+                "name": "highlight",
+                "select": { "type": "point", "on": "mouseover" }
+              }
+            ],
+            "data": {
+              "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/US_States_SOVI_Infographics.json",
+              "format": {
+                "type": "topojson",
+                "feature": "US_States_SOVI_Infographics"
+              }
+            },
+  
+            "mark": {
+              "type": "geoshape",
+              "stroke": "black",
+              "strokeWidth": 0.3
+            },
+            "transform": [
+              {
+                "lookup": "properties.STATE_NAME",
+                "from": {
+                  "data": {
+                    "url": "data/2020result.csv"
+                  },
+                  "key": "state",
+                  "fields": ["winner","electoral","SPLIT_STATE","Battleground","flipped"]
+                }
+              },
+              {
+                "filter": "State_selection == null || datum.properties.STATE_NAME == State_selection"
+              },{
+                "filter": "Politics_selection == null || datum.SPLIT_STATE == Politics_selection ||datum.Battleground == Politics_selection ||datum.flipped == Politics_selection"
+              },
+              {
+                "calculate": "datum.total_votes/datum.properties.POPULATION * 100000",
+                "as": "Number of Total votes per 100k population"
+              }
+            ],
+            "encoding": {
+              "color": {
+                "field": "winner",
+                "type": "nominal",
+                "scale": {
+                  "type": "threshold",
+                  "domain": ["DEM","REP"],
+                  "range": ["#4169e1", "#cf383c"]
+                },
+                "legend": {
+                  "title": "State won by respective parties",
+                  "titleFontSize": 15,
+                  "titleAnchor": "end",
+                  "direction": "horizontal",
+                  "orient": "top-right",
+                  "labelFontSize": 15,
+                  "titleLimit": 1000
+                }
+              },
+              "strokeWidth": {
+                "condition": [
+                  {
+                    "param": "highlight",
+                    "empty": false,
+                    "value": 2
+                  }
+                ],
+                "value": 0.3
+              },
+              "opacity": {
+                "condition": { "param": "highlight", "value": 1 },
+                "value": 0.7
+              },
+  
+              "tooltip": [
+                {
+                  "field": "properties.STATE_NAME",
+                  "type": "nominal",
+                  "title": "States"
+                },
+                {
+                  "field": "winner",
+                  "type": "nominal",
+                  "title": "Winning Party"
+                },
+                {
+                  "field": "electoral",
+                  "type": "quantitative",
+                  "title": "Number of Electoral Votes"
+
+                }
+              ]
+            }
+          },
+          {
+            "layer": [
+              {
+                "layer": [
+                  {
+                    "data": {
+                      "url": "data/us_position.csv"
+                    },
+                    
+                    "encoding": {
+                      "longitude": { "field": "long", "type": "quantitative" },
+                      "latitude": { "field": "lat", "type": "quantitative" }
+                      
+                    },
+                    "layer": [{
+                      "mark": {
+                        "type": "circle",
+                        "color": "orange"
+                      }
+                    }, {
+                      "mark": {
+                        "type": "text",
+                        "color":"white",
+                        "dy": -10
+                      },
+                      "encoding": {
+                        "text": {"field": "Code", "type": "nominal"}
+                      }
+                    }]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "config": {
+      "style": {
+        "cell": {
+          "stroke": null
+        }
+      }
+    }
+  }
+  
