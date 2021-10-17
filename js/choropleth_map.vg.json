@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/VEP_turnout_state.csv",
+    "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/master/data/VEP_turnout_state.csv",
     "format": {"parse": {"total_votes": "number"}}    
   },
   "background":null,
