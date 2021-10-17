@@ -4,7 +4,7 @@
     "width":"container",
     "background":null,
     "view": { "fill": "rgba(222, 222, 221, 0.7)", "cornerRadius":15 , "stroke":null},
-    "data": {"url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/master/data/gender_gap.csv"},
+    "data": {"url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/gender_gap.csv"},
     "transform": [
       {
         "filter": {

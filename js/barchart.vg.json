@@ -21,7 +21,7 @@
     }
   ],
   "data": {
-    "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/master/data/yearly_turnout.csv"
+    "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/yearly_turnout.csv"
   },
   "transform": [
     {
