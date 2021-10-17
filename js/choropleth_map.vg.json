@@ -1,9 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {
-    "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/VEP_turnout_state.csv",
-    "format": {"parse": {"total_votes": "number"}}    
-  },
+  
   "background":null,
   "params": [
     {
@@ -149,7 +146,7 @@
                   "lookup": "properties.STATE_NAME",
                   "from": {
                     "data": {
-                      "url": "data/VEP_turnout_state.csv",
+                      "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/VEP_turnout_state.csv",
                       "format": {"parse": {"total_votes": "number"}}                      
                     },
                     "key": "state",
@@ -211,7 +208,7 @@
               {
                 "data": 
                 {
-                  "url": "data/us_position.csv"
+                  "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/us_position.csv"
                 },
                 "mark": {"type": "circle", "tooltip": {"content": "data"}},
                 "encoding": {

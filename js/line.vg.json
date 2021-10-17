@@ -4,7 +4,7 @@
     "background":null,
     "width":"container",
     "view": { "fill": "rgba(222, 222, 221, 0.5)", "cornerRadius":15 , "stroke":null},
-    "data": {"url": "data/votebyrace.csv"},
+    "data": {"url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/votebyrace.csv"},
     "params": [{
       "name": "race",
       "select": {"type": "point", "fields": ["Race"]},

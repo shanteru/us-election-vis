@@ -31,7 +31,7 @@
 
     <title>US 2020 Election Demographics</title>
 
-    <link rel="stylesheet" href="css/template.css">
+    <link rel="stylesheet" href="css/style.css">
     
 </head>
 <body>
@@ -299,7 +299,7 @@
           
 
 
-          var spec6 = "line.vg.json";
+          var spec6 = "js/line.vg.json";
           vegaEmbed("#line", spec6)
             .then(function (result) {
               // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -307,14 +307,14 @@
             .catch(console.error);
 
 
-            var spec7 = "map2.vg.json";
+            var spec7 = "js/map2.vg.json";
           vegaEmbed("#map2", spec7)
             .then(function (result) {
               // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             })
             .catch(console.error);
 
-            var spec8 = "line2.vg.json";
+            var spec8 = "js/line2.vg.json";
             vegaEmbed("#line2", spec8)
               .then(function (result) {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view

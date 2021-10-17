@@ -1,9 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/VEP_turnout_state.csv",
-      "format": { "parse": { "total_votes": "number" } }
-    },
+    
     "background": null,
     "params": [
       {
@@ -174,7 +171,7 @@
                 "lookup": "properties.STATE_NAME",
                 "from": {
                   "data": {
-                    "url": "data/2020result.csv"
+                    "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/2020result.csv"
                   },
                   "key": "state",
                   "fields": ["winner","electoral","SPLIT_STATE","Battleground","flipped"]
@@ -250,7 +247,7 @@
                 "layer": [
                   {
                     "data": {
-                      "url": "data/us_position.csv"
+                      "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/us_position.csv"
                     },
                     
                     "encoding": {
