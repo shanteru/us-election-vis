@@ -55,10 +55,17 @@ const data = {
 };
 
 myChart.setOption(
-    (option = {
+    (option = {title:{
+        text: "Composition of Voters in 2020",
+        textstyle:{
+            color: "#000"
+        }
+    },
+    
         tooltip: {
             trigger: "item",
             triggerOn: "mousemove",
+            
         },
         series: [
             {
@@ -77,7 +84,7 @@ myChart.setOption(
                         lineStyle: {
                             color: "source",
                             opacity: 0.6,
-                        },
+                        }
                     },
                     {
                         depth: 1,
@@ -113,6 +120,12 @@ myChart.setOption(
                 lineStyle: {
                     curveness: 0.5,
                 },
+                label:{
+                    color: "#fff",
+                    fontSize: 15
+                 
+                }
+                
             },
         ],
     })
