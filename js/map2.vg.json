@@ -257,8 +257,11 @@
                     },
                     "layer": [{
                       "mark": {
-                        "type": "circle",
+                        "type": "text",
                         "color": "orange"
+                      },
+                      "encoding": {
+                        "text":{"field":"electoral", "type": "quantitative"}
                       }
                     }, {
                       "mark": {
