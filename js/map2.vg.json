@@ -4,6 +4,25 @@
     "background": null,
     "params": [
       {
+        "name": "electoral_selection",
+        "bind": {
+            "input": "select",
+            "options": [
+              
+              null,
+              "show"
+             
+             
+            ],
+            "labels": [
+              "Hide Electoral",
+              "Show Electoral"
+              
+            ],
+            "name": "Select A View: "
+        }
+      },
+      {
         "name": "State_selection",
         "bind": {
           "input": "select",
@@ -257,19 +276,28 @@
                     },
                     "layer": [{
                       "mark": {
+                        "type": "circle",
+                        "color": "orange"
+                      }
+                    },{
+                      "mark": {
                         "type": "text",
                         "color": "yellow",
                         "fontSize":15,
-                        "dy":5,
+                        "dy":10,
                         "font":"Lato"
                       },
                       "encoding": {
-                        "text":{"field":"electoral", "type": "quantitative"}
+                        "text":{"field":"electoral", "type": "quantitative"}, "opacity": {
+                          "condition": { "param": "electoral_selection", "value": 1 },
+                          "value": 0
+                        }
                       }
-                    }, {
+                    },{
                       "mark": {
                         "type": "text",
                         "color":"white",
+                        "fontSize":12,
                         "dy": -10
                       },
                       "encoding": {
