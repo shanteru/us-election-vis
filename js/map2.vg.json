@@ -247,7 +247,7 @@
                 "layer": [
                   {
                     "data": {
-                      "url": "https://raw.githubusercontent.com/shanteru/fit3179-visualisation2/main/data/us_position.csv"
+                      "url": "data/us_position.csv"
                     },
                     
                     "encoding": {
@@ -258,7 +258,10 @@
                     "layer": [{
                       "mark": {
                         "type": "text",
-                        "color": "orange"
+                        "color": "yellow",
+                        "fontSize":15,
+                        "dy":5,
+                        "font":"Lato"
                       },
                       "encoding": {
                         "text":{"field":"electoral", "type": "quantitative"}
