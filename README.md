@@ -16,4 +16,4 @@ https://www.dropbox.com/s/ka9n5gzxwotfu1a/wh2020_public_release_crosstabs.xlsx?d
 Page published [here](https://shanteru.github.io/fit3179-visualisation2/)
 
 
-Author - Chantelle Loh Yi Wei (31171109)
+Author - Chantelle Loh Yi Wei 
