@@ -1,4 +1,4 @@
-# FIT3179 Visualisation 2 
+# Data Visualisation Project for US 2020 Election
 
 ## Data
 
